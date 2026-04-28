@@ -191,70 +191,26 @@ animation:pulse 2s infinite;
 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
-/* =========================
-   RESPONSIVE GLOBAL
-========================= */
-
-/* TABLET */
-@media(max-width:1024px){
-.hero{
-padding:120px 20px 50px;
-gap:20px;
-}
-
-.hero-text h1{
-font-size:36px;
-}
-
-.hero-3d{
-width:320px;
-height:260px;
-}
-}
-
-/* MOBILE */
+/* RESPONSIVE */
 @media(max-width:768px){
-
 .hero{
 flex-direction:column;
 text-align:center;
-padding:110px 20px 40px;
-}
-
-.hero-text h1{
-font-size:28px;
-}
-
-.slogan,
-.impact{
-font-size:14px;
-border-left:none;
-padding-left:0;
 }
 
 .hero-3d{
 width:100%;
-max-width:260px;
-height:260px;
+max-width:320px;
+height:240px;
 margin:auto;
 }
 
-#sphere{
-width:100% !important;
-height:100% !important;
+.hero-text h1{
+font-size:32px;
 }
 
-/* cards */
 .preview-wrapper{
 height:220px;
-}
-
-.card h3{
-font-size:16px;
-}
-
-.card p{
-font-size:12px;
 }
 }
 </style>
@@ -294,7 +250,7 @@ Voir les réalisations
 
 <div class="card" onclick="window.open('https://isalinenitsche-poetesse.webflow.io')">
 <div class="preview-wrapper">
-<img src="isalinenitsche-poetesse.webflow.io_.png">
+<img src="images/isalinenitsche-poetesse.webflow.io_.png">
 </div>
 <h3>Isaline Nitsche</h3>
 <p>Portfolio artistique</p>
@@ -302,7 +258,7 @@ Voir les réalisations
 
 <div class="card" onclick="window.open('https://www.yooliz.com')">
 <div class="preview-wrapper">
-<img src="www.yooliz.com_.png">
+<img src="images/www.yooliz.com_.png">
 </div>
 <h3>Yooliz</h3>
 <p>Solution digitale moderne</p>
@@ -310,7 +266,7 @@ Voir les réalisations
 
 <div class="card" onclick="window.open('https://www.delamare-renovation.fr')">
 <div class="preview-wrapper">
-<img src="www.delamare-renovation.fr_.png">
+<img src="images/www.delamare-renovation.fr_.png">
 </div>
 <h3>Delamare Rénovation</h3>
 <p>Site artisan</p>
@@ -318,18 +274,18 @@ Voir les réalisations
 
 <div class="card" onclick="window.open('https://www.isothermik.fr')">
 <div class="preview-wrapper">
-<img src="www.isothermik.fr_.png">
+<img src="images/www.isothermik.fr_.png">
 </div>
 <h3>Isothermik</h3>
 <p>Isolation & énergie</p>
 </div>
 
-<div class="card" onclick="window.open('https://faismoiunepizza.fr/')">
+<div class="card" onclick="window.open('https://faismoiunepizza.fr')">
 <div class="preview-wrapper">
-<img src="faismoiunepizza.fr_.png">
+<img src="images/faismoiunepizza.fr_.png">
 </div>
 <h3>Fais-moi une pizza</h3>
-<p>Concept fast-food moderne</p>
+<p>Fast-food moderne</p>
 </div>
 
 </div>
@@ -352,6 +308,8 @@ alpha:true,
 antialias:true
 });
 
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
 function resize(){
 const w = canvas.parentElement.clientWidth;
 const h = canvas.parentElement.clientHeight;
@@ -362,7 +320,7 @@ camera.updateProjectionMatrix();
 }
 resize();
 
-/* SPHERE (INCHANGÉE) */
+/* SPHERE (IDENTIQUE À TON CODE) */
 const geometry = new THREE.SphereGeometry(1.25, 64, 64);
 
 const material = new THREE.MeshStandardMaterial({
@@ -381,7 +339,6 @@ const light = new THREE.PointLight(0x4f6fff, 1.5);
 light.position.set(3,2,3);
 scene.add(light);
 
-/* INTERACTION */
 let isDown = false;
 let prevX = 0;
 let prevY = 0;
